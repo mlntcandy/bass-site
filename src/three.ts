@@ -51,7 +51,7 @@ Object.keys(scenes).forEach((k) => {
 
 camera.position.z = 5;
 
-export function startAnimation(getF: () => number, smoothF: () => number) {
+export function startAnimation(getF: () => number, _smoothF: () => number) {
   function animate() {
     requestAnimationFrame(animate);
     let s = "cube" as keyof typeof scenes;
