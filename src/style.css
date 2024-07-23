@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: hsl(0deg, 0%, calc(160% - var(--smooth-f) * 230%));
+  color: hsl(0deg, 0%, calc(var(--smooth-f) * 300% - 50%));
+}
+.bg-bass {
+  background-color: hsla(0deg, 0%, calc(var(--smooth-f) * 300% - 50%), 0.05);
+}
+
+/* Don't wanna be sued lol */
+body.i-am-epileptic {
+  background-color: white;
+  color: black;
+}
+body.i-am-epileptic .bg-bass {
+  background-color: hsla(0deg, 0%, 0%, 0.05);
+}
+
+.daddytext {
+  transform: scaleX(calc(1 + var(--halfnoise1)))
+    scaleY(calc(1 + var(--halfnoise2)));
+}
+
+input[type="range"] {
+  height: 10px;
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  -webkit-appearance: none;
+  outline: 1px solid black;
+  transition: outline 0.2s ease;
+}
+input[type="range"]:focus {
+  outline: 3px solid #00000088;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  background: white;
+  -webkit-appearance: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  background: black;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: calc(-100vw - 5px) 0 0 100vw black;
+  cursor: pointer;
+  -webkit-appearance: none;
+}

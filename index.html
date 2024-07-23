@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FEEL THE BASS</title>
+    <style id="css-manager"></style>
+  </head>
+  <body class="shake1 i-am-epileptic">
+    <div id="cube" class="w-96 h-96 mx-auto"></div>
+    <h1 class="daddytext text-4xl font-bold p-4 my-4 w-fit mx-auto">
+      Я твой папочка
+    </h1>
+    <div class="max-w-6xl mx-auto p-4">
+      <div class="player">
+        <ul class="list bg-bass p-2 rounded-md w-fit mx-auto">
+          <li class="text-xl font-semibold">
+            Listen To Our Wonderful EXCLUSIVE Music by FMFS!
+          </li>
+        </ul>
+        <audio id="audio"></audio>
+      </div>
+      <!-- Controls -->
+      <div class="flex gap-4 items-center bg-bass p-2 rounded-md mt-2">
+        <button
+          id="playpause"
+          class="rounded-full w-8 h-8 bg-black text-white p-2 flex items-center justify-center flex-shrink-0"
+        >
+          ▷
+        </button>
+        <input
+          type="range"
+          id="seek"
+          value="0"
+          max="100"
+          step="1"
+          class="flex-grow"
+        />
+        <div class="flex-shrink-0">
+          <span id="current-time" class="font-semibold">-</span>
+          <span>/</span>
+          <span id="total-time">-</span>
+        </div>
+      </div>
+      <label class="text-xl mx-auto max-w-52 block">
+        <input type="checkbox" class="w-4 h-4" id="epileptic" checked />
+        I am Epileptic!
+      </label>
+      <!-- <div class="test">
+        <div class="slider"></div>
+      </div> -->
+
+      <div class="box shake1"></div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
