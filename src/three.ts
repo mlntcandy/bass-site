@@ -18,7 +18,7 @@ const component = document.querySelector("#cube") as HTMLElement;
 const scenes = {
   cube: new Scene(),
   sphere: new Scene(),
-  prisma: new Scene(),
+  prism: new Scene(),
   cylinder: new Scene(),
 };
 
@@ -40,7 +40,7 @@ const material = new MeshBasicMaterial({
 const shapes = {
   cube: new Mesh(new BoxGeometry(4, 4, 4), material),
   sphere: new Mesh(new SphereGeometry(3, 32, 16), material),
-  prisma: new Mesh(new ConeGeometry(3, 4, 3), material),
+  prism: new Mesh(new ConeGeometry(3, 4, 3), material),
   cylinder: new Mesh(new CylinderGeometry(2, 2, 4, 15), material),
 };
 
@@ -51,16 +51,25 @@ Object.keys(scenes).forEach((k) => {
 
 camera.position.z = 5;
 
+let shape = "cube" as keyof typeof scenes;
+let speed = 1;
+
+export function setShape(s: keyof typeof scenes) {
+  shape = s;
+}
+export function setSpeed(s: number) {
+  speed = s;
+}
+
 export function startAnimation(getF: () => number, _smoothF: () => number) {
   function animate() {
     requestAnimationFrame(animate);
-    let s = "cube" as keyof typeof scenes;
-    let object = shapes[s];
+    let object = shapes[shape];
     const f = getF() * 1.5 + 0.1;
-    object.rotation.x += 0.05 * f;
-    object.rotation.y += 0.025 * f;
+    object.rotation.x += 0.05 * f * speed;
+    object.rotation.y += 0.025 * f * speed;
 
-    renderer.render(scenes[s], camera);
+    renderer.render(scenes[shape], camera);
   }
 
   animate();

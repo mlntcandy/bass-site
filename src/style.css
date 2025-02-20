@@ -3,20 +3,41 @@
 @tailwind utilities;
 
 body {
-  background-color: hsl(0deg, 0%, calc(160% - var(--smooth-f) * 230%));
-  color: hsl(0deg, 0%, calc(var(--smooth-f) * 300% - 50%));
+  --bg: hsl(0deg, 0%, calc(160% - var(--smooth-f) * 230%));
+  background-color: var(--bg);
+  --text: hsl(0deg, 0%, calc(var(--smooth-f) * 300% - 50%));
+  color: var(--text);
+}
+body.dark {
+  --bg: hsl(0deg, 0%, calc(var(--smooth-f) * 300% - 50%));
+  background-color: var(--bg);
+  --text: hsl(0deg, 0%, calc(160% - var(--smooth-f) * 230%));
+  color: var(--text);
 }
 .bg-bass {
   background-color: hsla(0deg, 0%, calc(var(--smooth-f) * 300% - 50%), 0.05);
 }
+body.dark .bg-bass {
+  background-color: hsla(0deg, 0%, calc(160% - var(--smooth-f) * 230%), 0.05);
+}
 
-/* Don't wanna be sued lol */
 body.i-am-epileptic {
-  background-color: white;
-  color: black;
+  --bg: white;
+  background-color: var(--bg);
+  --text: black;
+  color: var(--text);
+}
+body.dark.i-am-epileptic {
+  --bg: black;
+  background-color: var(--bg);
+  --text: white;
+  color: var(--text);
 }
 body.i-am-epileptic .bg-bass {
   background-color: hsla(0deg, 0%, 0%, 0.05);
+}
+body.dark.i-am-epileptic .bg-bass {
+  background-color: hsla(0deg, 0%, 100%, 0.05);
 }
 
 .daddytext {
@@ -30,22 +51,42 @@ input[type="range"] {
   border-radius: 5px;
   overflow: hidden;
   -webkit-appearance: none;
-  outline: 1px solid black;
+  outline: 1px solid currentColor;
   transition: outline 0.2s ease;
 }
 input[type="range"]:focus {
   outline: 3px solid #00000088;
 }
+.dark input[type="range"]:focus {
+  outline: 3px solid #ffffff88;
+}
 input[type="range"]::-webkit-slider-runnable-track {
-  background: white;
+  background: var(--bg);
   -webkit-appearance: none;
 }
 input[type="range"]::-webkit-slider-thumb {
-  background: black;
+  background: currentColor;
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  box-shadow: calc(-100vw - 5px) 0 0 100vw black;
+  box-shadow: calc(-100vw - 5px) 0 0 100vw currentColor;
   cursor: pointer;
   -webkit-appearance: none;
+}
+
+#playpause {
+  background-color: var(--text);
+  color: var(--bg);
+}
+
+button[data-shape] {
+  display: block;
+  width: 36px;
+  height: 36px;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+button[data-shape]:hover {
+  opacity: 0.6;
 }
